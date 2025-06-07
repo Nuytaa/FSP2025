@@ -23,8 +23,9 @@
           Исследуйте культуру, природу и гастрономию <br>разных стран. Выбирайте тот, который лучше<br> всего соответствует вашему вкусу
         </p>
         <div class="d-flex justify-content-left mt-3 flex-wrap gap-3">
-          <button class="btn plan-btn">Запланировать</button>
+          <button class="btn plan-btn" @click="showModal">Запланировать</button>
           <button class="btn schedule-btn">Расписание</button>
+          <Modal ref="modalRef" />
         </div>
       </div>
     </header>
@@ -32,7 +33,14 @@
 </template>
 
 <script setup>
-// No specific logic yet
+import { ref } from 'vue'
+import Modal from './Modal.vue'
+
+const modalRef = ref(null)
+
+const showModal = () => {
+  modalRef.value.show()
+}
 </script>
 
 <style scoped>

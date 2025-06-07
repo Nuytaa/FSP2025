@@ -22,6 +22,7 @@ import VideoGallery from '~/components/VideoGallery.vue'
 import DreamSection from '~/components/DreamSection.vue'
 import FooterSection from '~/components/FooterSection.vue'
 
+
 // import TravelCards from '~/components/TravelCards.vue'
 // import LocationBlock from '~/components/LocationBlock.vue'
 // import CallToAction from '~/components/CallToAction.vue'

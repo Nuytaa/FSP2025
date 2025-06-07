@@ -5,7 +5,7 @@
       <!-- Левая секция: Видео (с заглушкой) -->
       <div class="video-block bg-light overflow-hidden flex-shrink-0">
         <a href="#" class="w-100 h-100 d-block text-center text-decoration-none text-white" style="display: flex; justify-content: center; align-items: center; background-color: #dcdcdc; border-radius: 40px;">
-          <span style="font-size: 24px;">Заглушка видео</span>
+          <video src="/public/video.mp4"></video>
         </a>
       </div>
 

@@ -1,5 +1,5 @@
-<!-- Modal.vue -->
 <template>
+  <!-- Модальное окно входа -->
   <div class="modal-overlay" v-if="visible" @click.self="hide">
     <div class="modal-content">
       <div class="modal-header">
@@ -35,24 +35,74 @@
           <button type="submit" class="login-btn">Войти</button>
 
           <div class="register-prompt">
-            Нет аккаунта? <a href="#">Зарегистрироваться</a>
+            Нет аккаунта? <a href="#" @click.prevent="showRegisterModal">Зарегистрироваться</a>
           </div>
 
           <div class="social-login">
             <p>Войти с помощью</p>
             <div class="social-buttons">
               <button class="social-btn yandex">
-                <img src="/public/yandex.png" alt="Яндекс" class="social-icon">
+                <img src="/yandex.png" alt="Яндекс" class="social-icon">
                 Яндекс ID
               </button>
               <button class="social-btn vk">
-                <img src="/public/vk.png" alt="ВКонтакте" class="social-icon">
+                <img src="/vk.png" alt="ВКонтакте" class="social-icon">
               </button>
               <button class="social-btn google">
-                <img src="/public//google.png" alt="Google" class="social-icon">
+                <img src="/google.png" alt="Google" class="social-icon">
               </button>
             </div>
           </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Модальное окно регистрации -->
+  <div class="modal-overlay" v-if="registerVisible" @click.self="hideRegisterModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="back-btn" @click="hideRegisterModal">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 12H5" stroke="#177FD1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 19L5 12L12 5" stroke="#177FD1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="airplane-icon">
+          <img src="/plane2.png" width="54" height="54" style="margin-left: -310px;">
+        </div>
+      </div>
+      
+      <div class="modal-body">
+        <p class="login-prompt">Регистрация</p>
+        <p class="login-instruction">Введите данные по форме ниже</p>
+
+        <form @submit.prevent="handleRegister">
+          <div class="form-group">
+            <label class="text_login" for="reg-username">Имя пользователя*</label>
+            <input type="text" id="reg-username" placeholder="Введите имя пользователя" class="custom-input" required>
+          </div>
+          
+          <div class="form-group">
+            <label class="text_login" for="reg-password">Пароль*</label>
+            <input type="password" id="reg-password" placeholder="Введите пароль" class="custom-input" required>
+          </div>
+          
+          <div class="form-group">
+            <label class="text_login" for="reg-password-confirm">Повторите пароль*</label>
+            <input type="password" id="reg-password-confirm" placeholder="Введите пароль" class="custom-input" required>
+          </div>
+          
+          <div class="form-group">
+            <label class="text_login" for="reg-email">E-mail*</label>
+            <input type="email" id="reg-email" placeholder="Введите E-mail" class="custom-input" required>
+          </div>
+          
+          <p class="consent-text">
+            Нажимая кнопку «Зарегистрироваться» вы даёте согласие на обработку своих персональных данных
+          </p>
+          
+          <button type="submit" class="login-btn">Зарегистрироваться</button>
         </form>
       </div>
     </div>
@@ -63,6 +113,7 @@
 import { ref } from 'vue'
 
 const visible = ref(false)
+const registerVisible = ref(false)
 
 const show = () => {
   visible.value = true
@@ -74,9 +125,24 @@ const hide = () => {
   document.body.style.overflow = 'auto'
 }
 
+const showRegisterModal = () => {
+  visible.value = false
+  registerVisible.value = true
+}
+
+const hideRegisterModal = () => {
+  registerVisible.value = false
+  document.body.style.overflow = 'auto'
+}
+
 const handleSubmit = () => {
   // Логика входа
   hide()
+}
+
+const handleRegister = () => {
+  // Логика регистрации
+  hideRegisterModal()
 }
 
 defineExpose({
@@ -174,7 +240,7 @@ defineExpose({
   font-size: 14px;
   display: block;
   text-align: left;
-  margin-top: 10px;
+  margin-top: 20px;
   margin-left: 50px;
 }
 
@@ -186,7 +252,7 @@ defineExpose({
   border-radius: 20px;
   font-size: 16px;
   box-sizing: border-box;
-  margin-left: -20px;
+  margin-left: -30px;
 }
 
 .login-btn {
@@ -271,5 +337,13 @@ defineExpose({
   width: 16px;
   height: 16px;
   object-fit: contain;
+}
+
+.consent-text {
+  color: #666;
+  font-size: 14px;
+  text-align: center;
+  margin: 20px 0;
+  padding: 0 20px;
 }
 </style>

@@ -3,8 +3,8 @@
     <HeaderSection />
     <AboutSection />
     <ExpandsSection />
-    <!-- <DreamSection />
     <VideoGallery />
+    <!-- <DreamSection />
     <TravelCards />
     <LocationBlock />
     <CallToAction />
@@ -16,8 +16,8 @@
 import HeaderSection from '~/components/HeaderSection.vue'
 import AboutSection from '~/components/AboutSection.vue'
 import ExpandSection from '~/components/ExpandsSection.vue'
+import VideoGallery from '~/components/VideoGallery.vue'
 // import DreamSection from '~/components/DreamSection.vue'
-// import VideoGallery from '~/components/VideoGallery.vue'
 // import TravelCards from '~/components/TravelCards.vue'
 // import LocationBlock from '~/components/LocationBlock.vue'
 // import CallToAction from '~/components/CallToAction.vue'

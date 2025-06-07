@@ -11,37 +11,38 @@
 
       <!-- Правая секция: Преимущества -->
       <div class="advantages-block bg-white p-4 rounded-4 shadow-sm d-flex flex-column justify-content-between">
-        <div>
-          <h2 class="text-primary fw-bold mb-4" style="font-size: 48px;">Преимущества</h2>
+        <div style="max-width: 861px; max-height: 525px;">
+          <h2 class="text-primary fw-bold mb-4" style="font-size: 48px; padding-top: 50px;">Преимущества</h2>
 
           <ul class="list-unstyled text-primary fs-5">
-            <li class="d-flex align-items-start mb-3">
+            <li style="padding-bottom: 20px; font-size: 24px;" class="d-flex align-items-start mb-3">
               <img src="/public/icon.png" alt="check" class="me-3" width="24" height="24" />
               <div>
-                <strong>Оперативно и круглосуточно</strong><br />
+                <strong class="podzagolovok">Оперативно и круглосуточно</strong><br />
                 Чат поможет в любое время составить план под ваши интересы, не нужно ждать менеджера и службу поддержки
               </div>
             </li>
-            <li class="d-flex align-items-start mb-3">
+            <li style="padding-bottom: 20px; font-size: 24px;" class="d-flex align-items-start mb-3">
               <img src="/public/icon.png" alt="check" class="me-3" width="24" height="24" />
               <div>
-                <strong>Многофункциональность</strong><br />
+                <strong class="podzagolovok">Многофункциональность</strong><br />
                 Пользователь может вносить корректировки в режиме чата
               </div>
             </li>
-            <li class="d-flex align-items-start mb-4">
+            <li style="padding-bottom: 20px; font-size: 24px;" class="d-flex align-items-start mb-4">
               <img src="/public/icon.png" alt="check" class="me-3" width="24" height="24" />
               <div>
-                <strong>Намеченные планы всегда под рукой</strong><br />
+                <strong class="podzagolovok">Намеченные планы всегда под рукой</strong><br />
                 Возможность генерировать готовый план в формате PDF с QR-кодом
               </div>
             </li>
           </ul>
         </div>
-
+        
         <button class="btn btn-primary text-white fw-semibold create-plan-btn mt-3">
           Создать план
         </button>
+
       </div>
 
     </div>
@@ -49,6 +50,12 @@
 </template>
 
 <style scoped>
+
+.podzagolovok {
+  font-weight: 400;
+  font-size: 32px;
+}
+
 .video-block {
   width: 739px;
   height: 694px;
@@ -57,6 +64,8 @@
 }
 
 .advantages-block {
+  display: flex;
+  align-items: center;
   width: 1085px;
   height: 694px;
   border-radius: 40px;
@@ -69,9 +78,11 @@
   width: 263px;
   height: 87px;
   background-color: #177FD1;
-  font-size: 20px;
+  font-size: 28px;
   border-radius: 40px;
   border: none;
+  font-weight: 700;
+  margin-left: -55%;
 }
 
 /* Адаптивность */

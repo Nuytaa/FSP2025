@@ -23,8 +23,10 @@
 </template>
 
 <style scoped>
+
 .travel-section {
   max-width: 1856px;
+  border-radius: 40px;
 }
 
 .text-title {
@@ -51,11 +53,12 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-
+  border-radius: 40px;
 }
 
 .image-wrapper {
   height: 348px;
+  border-radius: 40px;
 }
 
 .object-cover {

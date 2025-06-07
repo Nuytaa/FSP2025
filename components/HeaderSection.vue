@@ -5,7 +5,7 @@
 
       <!-- Top Nav Elements -->
       <div class="top-bar d-flex justify-between align-items-center px-4 py-3">
-        <button class="btn location-btn">Где я сейчас¿</button>
+        <button class="btn location-btn">ПолетИИм</button>
         <h1 class="hero-title m-0 text-center flex-grow-1">Открывая мир</h1>
         <button class="btn burger-btn d-flex justify-content-center align-items-center">
           <div class="burger-lines">

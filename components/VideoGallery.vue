@@ -6,15 +6,13 @@
       <div class="row gx-4 gy-4">
         <!-- Видео 1 -->
         <div class="col video-wrapper">
-          <video class="video" autoplay muted loop playsinline>
-            <source src="/public/1video.mp4" type="video/mp4" />
-          </video>
+          <iframe src="https://assets.pinterest.com/ext/embed.html?id=473089135877095928" height="600" width="440" frameborder="0" scrolling="no" ></iframe>
         </div>
 
         <!-- Текстовый блок -->
         <div class="col text-wrapper">
-          <h2>Путешествие — просто</h2>
-          <p>
+          <h2 style="font-size: 48px; font-weight: 700;">Путешествие — просто</h2>
+          <p style="color:#177FD1; font-size: 21px; font-weight: 700;">
             В любую точку мира и России всего<br />
             за пару кликов и запросов в нашем чате
           </p>
@@ -22,40 +20,28 @@
 
         <!-- Видео 2 -->
         <div class="col video-wrapper">
-          <video class="video" autoplay muted loop playsinline>
-            <source src="/public/2video.mp4" type="video/mp4" />
-          </video>
+          <iframe src="https://assets.pinterest.com/ext/embed.html?id=649503577531069517" height="600" width="440" frameborder="0" scrolling="no" ></iframe>
         </div>
 
         <!-- Видео 3 -->
         <div class="col video-wrapper">
-          <video class="video" autoplay muted loop playsinline>
-            <source src="/public/3video.mp4" type="video/mp4" />
-          </video>
+          <iframe src="https://assets.pinterest.com/ext/embed.html?id=625296729550693957" height="600" width="440" frameborder="0" scrolling="no" ></iframe>
         </div>
       </div>
 
       <!-- Вторая линия -->
       <div class="row gx-4 gy-4 mt-4">
         <div class="col video-wrapper">
-          <video class="video" autoplay muted loop playsinline>
-            <source src="/public/1video.mp4" type="video/mp4" />
-          </video>
+          <iframe src="https://assets.pinterest.com/ext/embed.html?id=563018697805905" height="600" width="440" frameborder="0" scrolling="no" ></iframe>
         </div>
          <div class="col video-wrapper">
-          <video class="video" autoplay muted loop playsinline>
-            <source src="/public/2video.mp4" type="video/mp4" />
-          </video>
+          <iframe src="https://assets.pinterest.com/ext/embed.html?id=83809243059739750" height="600" width="440" frameborder="0" scrolling="no" ></iframe>
         </div>
         <div class="col video-wrapper">
-          <video class="video" autoplay muted loop playsinline>
-            <source src="/public/3video.mp4" type="video/mp4" />
-          </video>
+          <iframe src="https://assets.pinterest.com/ext/embed.html?id=703898616799311377" height="600" width="440" frameborder="0" scrolling="no" ></iframe>
         </div>
         <div class="col video-wrapper">
-          <video class="video" autoplay muted loop playsinline>
-            <source src="/public/4video.mp4" type="video/mp4" />
-          </video>
+         <iframe src="https://assets.pinterest.com/ext/embed.html?id=36380709483358165" height="600" width="440" frameborder="0" scrolling="no" ></iframe>
         </div>
       </div>
 
@@ -114,7 +100,6 @@
 
 .text-wrapper {
   border-radius: 40px;
-  background-color: #f0f0f0;
   height: 600px;
   width: 440px;
   text-align: center;

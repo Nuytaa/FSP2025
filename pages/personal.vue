@@ -10,18 +10,31 @@
         <div class="logo" style="width: 196px; height: 82px; border-radius: 40px; font-size: 25px; display: flex; justify-content: center; align-items: center; background-color: #ffffff; color: #007bff; font-weight: 700;">
           ПолетИИм
         </div>
-        <!-- Profile Block -->
-        <div class="dropdown">
-          <button class="btn btn-light d-flex align-items-center" style="width: 338px; height: 82px; border-radius: 40px;">
-            <img src="/public/profile.jpg" alt="Profile" class="rounded-circle" style="width: 40px; height: 40px;">
-            <span class="ms-2">Бочкарева Алина</span>
-            <i class="bi bi-chevron-down ms-3"></i>
-          </button>
-          <ul class="dropdown-menu" style="width: 338px; border-radius: 40px;">
-            <li><a class="dropdown-item" href="#">Профиль</a></li>
-            <li><a class="dropdown-item" href="#">Выйти</a></li>
-          </ul>
-        </div>
+       
+   <!-- Profile Block with dropdown -->
+<div class="position-relative" @click.outside="isDropdownOpen = false">
+  <button class="btn btn-light d-flex align-items-center justify-content-between"
+          @click="toggleDropdown"
+          style="width: 338px; height: 82px; border-radius: 40px;">
+    <div class="d-flex align-items-center">
+      <img src="/profile.jpg" alt="Profile" class="rounded-circle" style="width: 40px; height: 40px;">
+      <span class="ms-2">Бочкарева Алина</span>
+    </div>
+    <i class="bi bi-chevron-down ms-3"></i>
+  </button>
+
+  <!-- Dropdown Menu -->
+  <div v-if="isDropdownOpen"
+       class="dropdown-menu show"
+       style="position: absolute; top: 90px; right: 0; width: 338px; border-radius: 40px; padding: 16px; background-color: white;">
+    <NuxtLink to="/profile" class="dropdown-item d-flex align-items-center justify-content-between mb-2">
+      <i class="bi bi-person"></i> <span>Профиль</span> <i class="bi bi-chevron-right"></i>
+    </NuxtLink>
+    <NuxtLink to="/logout" class="dropdown-item d-flex align-items-center justify-content-between">
+      <i class="bi bi-box-arrow-right"></i> <span>Выйти</span>
+    </NuxtLink>
+  </div>
+</div>
       </div>
 
       <!-- Chat Block (1792px x 448px) with 2 messages -->
@@ -138,16 +151,11 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref } from 'vue'
 
-// For downloading PDF or creating any dynamic logic
-const createPlan = () => {
-  // Logic for PDF generation or QR code creation
-}
-
-// Logic for scrolling and navigation (if required)
-const handleScroll = (direction) => {
-  // Handle scroll logic for "План для вас"
+const isDropdownOpen = ref(false)
+const toggleDropdown = () => {
+  isDropdownOpen.value = !isDropdownOpen.value
 }
 </script>
 

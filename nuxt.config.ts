@@ -5,4 +5,8 @@ export default defineNuxtConfig({
       'process.env.DEBUG': false,
     },
   },
+  pages: true, // Явно включаем файловую маршрутизацию
+  routeRules: {
+    '/personal': { ssr: false } 
+  },
 })

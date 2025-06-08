@@ -18,19 +18,19 @@
         <p class="login-prompt">Войдите в аккаунт</p>
         <p class="login-instruction">Введите логин и пароль в форме ниже</p>
 
-        <form @submit.prevent="handleSubmit">
+        <form @submit.prevent="handleLogin">
           <div class="form-group">
             <label class="text_login" for="username">Имя</label>
-            <input type="text" id="username" placeholder="Введите имя пользователя" class="custom-input">
+            <input type="text" id="username" placeholder="Введите имя пользователя" class="custom-input" v-model="username">
           </div>
           
           <div class="form-group password-group">
             <div class="password-label-row">
               <label class="text_login" for="password">Пароль*</label>
             </div>
-            <input type="password" id="password" placeholder="Введите пароль" class="custom-input">
+            <input type="password" id="password" placeholder="Введите пароль" class="custom-input" v-model="password">
           </div>
-          <a href="#" class="forgot-password">Восстановить пароль</a>
+          <a href="#" class="forgot-password" @click.prevent="showPasswordRecoveryModal">Восстановить пароль</a>
           
           <button type="submit" class="login-btn">Войти</button>
 
@@ -80,22 +80,22 @@
         <form @submit.prevent="handleRegister">
           <div class="form-group">
             <label class="text_login" for="reg-username">Имя пользователя*</label>
-            <input type="text" id="reg-username" placeholder="Введите имя пользователя" class="custom-input" required>
+            <input type="text" id="reg-username" placeholder="Введите имя пользователя" class="custom-input" v-model="registerData.username" required>
           </div>
           
           <div class="form-group">
             <label class="text_login" for="reg-password">Пароль*</label>
-            <input type="password" id="reg-password" placeholder="Введите пароль" class="custom-input" required>
+            <input type="password" id="reg-password" placeholder="Введите пароль" class="custom-input" v-model="registerData.password" required>
           </div>
           
           <div class="form-group">
             <label class="text_login" for="reg-password-confirm">Повторите пароль*</label>
-            <input type="password" id="reg-password-confirm" placeholder="Введите пароль" class="custom-input" required>
+            <input type="password" id="reg-password-confirm" placeholder="Введите пароль" class="custom-input" v-model="registerData.passwordConfirm" required>
           </div>
           
           <div class="form-group">
             <label class="text_login" for="reg-email">E-mail*</label>
-            <input type="email" id="reg-email" placeholder="Введите E-mail" class="custom-input" required>
+            <input type="email" id="reg-email" placeholder="Введите E-mail" class="custom-input" v-model="registerData.email" required>
           </div>
           
           <p class="consent-text">
@@ -107,13 +107,57 @@
       </div>
     </div>
   </div>
+
+  <!-- Модальное окно восстановления пароля -->
+  <div class="modal-overlay" v-if="passwordRecoveryVisible" @click.self="hidePasswordRecoveryModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="back-btn" @click="hidePasswordRecoveryModal">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 12H5" stroke="#177FD1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 19L5 12L12 5" stroke="#177FD1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="airplane-icon">
+          <img src="/plane2.png" width="54" height="54" style="margin-left: -310px;">
+        </div>
+      </div>
+      
+      <div class="modal-body">
+        <p class="login-prompt">Восстановить пароль</p>
+        <p class="login-instruction">Введите E-mail в форме ниже</p>
+
+        <form @submit.prevent="handlePasswordRecovery">
+          <div class="form-group">
+            <label class="text_login" for="recovery-email">E-mail</label>
+            <input type="email" id="recovery-email" placeholder="Введите E-mail" class="custom-input" v-model="recoveryEmail" required>
+          </div>
+          
+          <button type="submit" class="login-btn">Отправить код</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
+import { navigateTo } from '#app'
 
 const visible = ref(false)
 const registerVisible = ref(false)
+const passwordRecoveryVisible = ref(false)
+
+const username = ref('')
+const password = ref('')
+const recoveryEmail = ref('')
+
+const registerData = ref({
+  username: '',
+  password: '',
+  passwordConfirm: '',
+  email: ''
+})
 
 const show = () => {
   visible.value = true
@@ -135,14 +179,30 @@ const hideRegisterModal = () => {
   document.body.style.overflow = 'auto'
 }
 
-const handleSubmit = () => {
-  // Логика входа
-  hide()
+const showPasswordRecoveryModal = () => {
+  visible.value = false
+  passwordRecoveryVisible.value = true
+}
+
+const hidePasswordRecoveryModal = () => {
+  passwordRecoveryVisible.value = false
+  document.body.style.overflow = 'auto'
+}
+
+const handleLogin = () => {
+  // Здесь можно добавить логику проверки данных
+  hide() // Закрываем модальное окно
+  navigateTo('/personal') // Переходим на страницу Personal.vue
 }
 
 const handleRegister = () => {
   // Логика регистрации
   hideRegisterModal()
+}
+
+const handlePasswordRecovery = () => {
+  // Логика восстановления пароля
+  hidePasswordRecoveryModal()
 }
 
 defineExpose({

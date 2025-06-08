@@ -40,15 +40,29 @@
       </div>
     </div>
 
-    <!-- Recent Places -->
-    <div class="row g-4 mb-4">
-      <div v-for="i in 8" :key="i" class="col-lg-3 col-md-4 col-sm-6">
-        <div class="bg-white rounded-4 shadow-sm p-4" style="width: 100%; height: 434px;">
-          <h5>Моя поездка в Анапу</h5>
-          <p class="text-muted">Анапа 2025 год</p>
+      
+    <div class="trip-grid">
+      <div
+        class="trip-card"
+        v-for="trip in trips"
+        :key="trip.title"
+      >
+        <h5>{{ trip.title }}</h5>
+        <p class="text-muted">{{ trip.subtitle }}</p>
+        <img
+          :src="trip.image"
+          alt="Фото"
+          class="trip-image"
+        />
+        <div
+          class="trip-status"
+          :style="{ backgroundColor: trip.statusColor }"
+        >
+          {{ trip.statusText }}
         </div>
       </div>
     </div>
+
 
     <!-- Pagination -->
     <div class="d-flex justify-content-between align-items-center">
@@ -90,10 +104,105 @@ const rightFields = [
   { label: 'Увлечения', value: '' },
   { label: 'О себе', value: '' },
 ];
+
+// ✅ Правильное определение массива trips
+const trips = [
+  {
+    title: 'Моя поездка в Анапу',
+    subtitle: 'Анапа 2025 год',
+    image: '/анапа.jpg',
+    statusText: 'Новое',
+    statusColor: '#A0A0A0'
+  },
+  {
+    title: 'Поездка в Сочи',
+    subtitle: 'Сочи 2025 год',
+    image: '/сочи.png',
+    statusText: 'Успех',
+    statusColor: '#28a745'
+  },
+  {
+    title: 'Поездка по Ярославлю',
+    subtitle: 'Золотое кольцо',
+    image: '/ярославль.png',
+    statusText: 'Успех',
+    statusColor: '#28a745'
+  },
+  {
+    title: 'Москва (Большой Театр)',
+    subtitle: 'Премьера Большой театр 2024',
+    image: '/москва.png',
+    statusText: 'Успех',
+    statusColor: '#28a745'
+  },
+  {
+    title: 'Тула 2024',
+    subtitle: 'Тула 2024',
+    image: '/тула.jpg',
+    statusText: 'Успех',
+    statusColor: '#28a745'
+  },
+  {
+    title: 'Казань (Kazan)',
+    subtitle: 'Казань 2024',
+    image: '/казань.jpg',
+    statusText: 'Успех',
+    statusColor: '#28a745'
+  },
+  {
+    title: 'Москва',
+    subtitle: 'Концерт Wildways',
+    image: '/москва2.jpg',
+    statusText: 'Успех',
+    statusColor: '#28a745'
+  },
+  {
+    title: 'Поездка в Крым',
+    subtitle: 'Крым 2023 год',
+    image: '/крым.jpg',
+    statusText: 'Отменено',
+    statusColor: '#dc3545'
+  }
+];
 </script>
 
 <style scoped>
 body {
   background-color: #f2f5f8;
+}
+.trip-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 32px;
+  padding: 16px;
+}
+
+.trip-card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  padding: 24px;
+  text-align: center;
+  height: 100%;
+}
+
+.trip-image {
+  width: 100%;
+  height: 187px;
+  object-fit: cover;
+  border-radius: 40px;
+  margin: 16px 0;
+}
+
+.trip-status {
+  width: 89px;
+  height: 44px;
+  border-radius: 12px;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
 }
 </style>

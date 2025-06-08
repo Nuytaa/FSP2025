@@ -30,3 +30,5 @@
 // import CallToAction from '~/components/CallToAction.vue'
 
 </script>
+
+<style>@import "bootstrap-icons/font/bootstrap-icons.css";</style>

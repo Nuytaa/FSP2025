@@ -9,4 +9,7 @@ export default defineNuxtConfig({
   routeRules: {
     '/personal': { ssr: false } 
   },
+   modules: [
+    '@vueuse/nuxt'
+  ],
 })

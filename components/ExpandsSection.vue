@@ -5,7 +5,7 @@
       <!-- Левая секция: Видео (с заглушкой) -->
       <div class="video-block bg-light overflow-hidden flex-shrink-0">
         <a href="#" class="w-100 h-100 d-block text-center text-decoration-none text-white" style="display: flex; justify-content: center; align-items: center; background-color: #dcdcdc; border-radius: 40px;">
-          <video src="/public/video.mp4"></video>
+          <video src="/public/video.mp4" controls></video>
         </a>
       </div>
 
